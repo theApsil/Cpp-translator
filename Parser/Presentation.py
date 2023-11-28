@@ -10,6 +10,7 @@ LEVEL_INDENT = 2
 
 GAMMA_RULE = u"GAMMA"
 
+
 class TreeNode(object):
     def __init__(self, rule, lexeme):
         self.rule = rule
@@ -21,6 +22,7 @@ class TreeNode(object):
 
     def addChild(self, child):
         self.children = [child] + self.children
+
 
 class Production(object):
     def __init__(self, *terms):
@@ -96,7 +98,7 @@ class State(object):
 
     def __eq__(self, other):
         return (self.name, self.production, self.dotIndex, self.startColumn) == \
-               (other.name, other.production, other.dotIndex, other.startColumn)
+            (other.name, other.production, other.dotIndex, other.startColumn)
 
     def __ne__(self, other):
         return not (self == other)
