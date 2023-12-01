@@ -24,7 +24,7 @@ class ParserGrammar:
         for rule in self.rules:
             if rule.name == ruleName:
                 return rule
-        
+
         return None
 
     def parseTxtRulesNames(self, file):
@@ -40,7 +40,6 @@ class ParserGrammar:
                 self.errors.append(GrammarParserError(lineNumber, GrammarParserErrorType.INVALID_RULE_STRUCT))
         for rule in result:
             self.rules.append(Rule(rule))
-
 
     def parseTxtRulesProductions(self, file):
         file.seek(0)
@@ -65,7 +64,6 @@ class ParserGrammar:
 
             else:
                 self.errors.append(GrammarParserError(lineNumber, GrammarParserErrorType.INVALID_RULE_STRUCT))
-    
 
     def parseTxtRules(self, filePath):
         file = open(filePath, 'r', encoding="utf-8")
@@ -74,7 +72,7 @@ class ParserGrammar:
 
     def getRuleCount(self):
         return len(self.rules)
-    
+
     def printRules(self):
         for rule in self.rules:
             print(repr(rule))
