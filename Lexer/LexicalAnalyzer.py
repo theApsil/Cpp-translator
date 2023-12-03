@@ -1,5 +1,5 @@
-from Lexems import LexemeType
-from Lexems import DictionaryOfLexemes
+from Lexer.Lexems import LexemeType
+from Lexer.Lexems import DictionaryOfLexemes
 import re
 
 

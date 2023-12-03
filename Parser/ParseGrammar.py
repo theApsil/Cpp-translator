@@ -20,7 +20,7 @@ class ParserGrammar:
         self.rules = []
         self.errors = []
 
-    def search_rule(self, ruleName):
+    def searchRule(self, ruleName):
         for rule in self.rules:
             if rule.name == ruleName:
                 return rule

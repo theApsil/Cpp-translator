@@ -13,7 +13,7 @@ Types = {
 }
 
 
-class GeneratorNode(object):
+class GeneratorNode:
     def __init__(self, parent, name=None, body=None):
         self.parent = parent
         self.name = name
@@ -143,7 +143,7 @@ class ReturnNode(GeneratorNode):
         super().__init__(parent, 'return')
 
 
-class Generator(object):
+class Generator:
     def __init__(self, tree):
         if tree.rule.name != 'GAMMA':
             raise ValueError
