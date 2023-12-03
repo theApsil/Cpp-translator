@@ -1,6 +1,7 @@
-from Parser.ParseGrammar import *
-from CodeGenerator.Generator import *
-from SemanticalAnalyzer.SemanticAnalyzer import *
+from Lexer import LexicalAnalyzer
+from Parser import *
+from CodeGenerator import Generator
+from SemanticalAnalyzer import *
 
 lexicalAnalyzer = LexicalAnalyzer('test.cpp')
 lexicalAnalyzerResult = lexicalAnalyzer.startParsing()

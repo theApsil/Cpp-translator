@@ -1,6 +1,6 @@
-from Parser.Presentation import TreeNode, Node
-from Lexer.Errors import ErrorTypeSemantic
-from ReservedWords import *
+from Parser import TreeNode, Node
+from Lexer import ErrorTypeSemantic
+from SemanticalAnalyzer.ReservedWords import *
 
 
 class Variable(object):
@@ -105,7 +105,7 @@ class VariableSemanticAnalyser:
             print(SemanticError(node.lexeme.lineNumber, newVariable.name,
                                 ErrorTypeSemantic.TYPE_MISMATCH.value))
             errorCheck = True
-        if newVariable.name in ReservedWords.ReservedWords.data and newVariable.name[0] is not None:
+        if newVariable.name in ReservedWords.data and newVariable.name[0] is not None:
             print(SemanticError(node.lexeme.lineNumber, newVariable.name,
                                 ErrorTypeSemantic.USAGE_OF_RESERVED_IDENTIFIER.value))
             errorCheck = True

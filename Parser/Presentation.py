@@ -1,6 +1,6 @@
 import re
-from Lexer.Lexems import LexemeType
-from Lexer.LexicalAnalyzer import LexicalAnalyzer
+from Lexer import LexemeType
+from Lexer import LexicalAnalyzer
 
 VERTICAL_SYMBOL = "│"
 VERTICAL_FORK = "├"
