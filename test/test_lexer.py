@@ -1,10 +1,10 @@
 import unittest
-from Lexer.LexicalAnalyzer import LexicalAnalyzer
+from Lexer import LexicalAnalyzer
 
 
 class LexerTests(unittest.TestCase):
     def setUp(self):
-        self.lexicalAnalyzer = LexicalAnalyzer('./tests/test_data/lexer_unit_test_file.cpp')
+        self.lexicalAnalyzer = LexicalAnalyzer('unit_test_lexer.cpp')
         self.lexicalAnalyzer.startParsing()
 
     def test_lexeme_type_plus(self):
