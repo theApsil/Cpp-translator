@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+#container {
+    display: flex;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header img {
+    width: 20%;
+    max-width: 200px; /* Максимальная ширина, чтобы избежать слишком большого изображения на больших экранах */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Выравнивание по центру */
+}
+
+.input-block {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.input-block textarea {
+    width: 100%;
+    height: 500px;
+    resize: none;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 30px;
+    font-family: "Agency FB";
+    font-size: 30px;
+}
