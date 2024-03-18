@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPP-Translator</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    {% with msg = get_flashed_messages(with_categories=True) %}
+        {% if msg %}
+        {% for category, message in msg %}
+            <div class="alert">
+              <strong class="alert-content">{{ message }}</strong>
+            </div>
+        {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <header>
+        <img src="../static/images/01-primary-blue-docker-logo.png">
+    </header>
+    <form action="" method="post">
+        <div id="container">
+            <div class="input-block">
+                    <label for="input_code">Enter your code in C++</label>
+                    <textarea id="input_code" placeholder="C++ Code", name="input_code">{% if input_code %}{{ input_code }}{% endif %}</textarea>
+            </div>
+
+            <div class="input-block">
+                <label for="output_code">Your translated code in Pascal:</label>
+                <textarea id="output_code" placeholder="Pascal Code" readonly>{% if output_code %}{{ output_code }}{% endif %}</textarea>
+            </div>
+        </div>
+
+        <button id="#get_request" onclick="processData()">Translate C++ -> Pascal</button>
+    </form>
+    <div id="result"></div>
+</body>
+</html>
