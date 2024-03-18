@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0px;
     text-align: center;
 }
 
@@ -40,4 +40,25 @@ button {
     margin-top: 30px;
     font-family: "Agency FB";
     font-size: 30px;
+}
+
+.alert {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(139, 0, 58, 0.9);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.alert-content {
+    width: 10%;
+    margin: 0 auto; /* Центрируем содержимое по горизонтали */
+}
+
+header, form {
+    margin: 20px;
 }
