@@ -3,33 +3,36 @@ from Parser import *
 from CodeGenerator import Generator
 from SemanticalAnalyzer import *
 
-lexicalAnalyzer = LexicalAnalyzer('test.cpp')
-lexicalAnalyzerResult = lexicalAnalyzer.startParsing()
 
-print()
-if lexicalAnalyzerResult:
+def get_code():
+    lexicalAnalyzer = LexicalAnalyzer("test.cpp")
+    lexicalAnalyzerResult = lexicalAnalyzer.startParsing()
 
-    grammarParser = ParserGrammar()
-    grammarParser.parseJsonRules('grammar.json')
+    if lexicalAnalyzerResult:
 
-    earley = Earley(grammarParser.rules, "<программа>")
+        grammarParser = ParserGrammar()
+        grammarParser.parseJsonRules('grammar.json')
 
-    earleyParseResult = earley.parse(lexicalAnalyzer.lexemeArray)
-    earley.printTableToFile()
-    earley.printError()
-    earleyTable = earley.table
+        earley = Earley(grammarParser.rules, "<программа>")
 
-    if earleyParseResult:
-        treeBuilder = TreeBuilder(earleyTable, grammarParser.rules)
-        treeBuilder.buildTree()
-        treeBuilder.printTreeToFile()
+        earleyParseResult = earley.parse(lexicalAnalyzer.lexemeArray)
+        earley.printTableToFile()
+        earley.printError()
+        earleyTable = earley.table
 
-        generator = Generator(treeBuilder.tree)
-        generator.generate()
-        print(generator.resultCode)
+        if earleyParseResult:
+            treeBuilder = TreeBuilder(earleyTable, grammarParser.rules)
+            treeBuilder.buildTree()
+            treeBuilder.printTreeToFile()
 
-        variableStorage = VariableStorage()
-        semanticAnalyser = VariableSemanticAnalyser(treeBuilder.tree)
-        semanticAnalyser.parse(treeBuilder.tree, variableStorage)
+            variableStorage = VariableStorage()
+            semanticAnalyser = VariableSemanticAnalyser(treeBuilder.tree)
+            semanticAnalyser.parse(treeBuilder.tree, variableStorage)
 
-    print()
+            generator = Generator(treeBuilder.tree)
+            generator.generate()
+            return generator.resultCode
+        else:
+            return "error", (earley.getErrors(), )
+    else:
+        return "error", lexicalAnalyzer.getErrors()

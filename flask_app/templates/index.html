@@ -21,8 +21,8 @@
     <form action="" method="post">
         <div id="container">
             <div class="input-block">
-                    <label for="input_code">Enter your code in C++</label>
-                    <textarea id="input_code" placeholder="C++ Code", name="input_code">{% if input_code %}{{ input_code }}{% endif %}</textarea>
+                <label for="input_code">Enter your code in C++</label>
+                <textarea id="input_code" placeholder="C++ Code", name="input_code">{% if input_code %}{{ input_code }}{% endif %}</textarea>
             </div>
 
             <div class="input-block">
@@ -31,8 +31,7 @@
             </div>
         </div>
 
-        <button id="#get_request" onclick="processData()">Translate C++ -> Pascal</button>
+        <button id="#get_request">Translate C++ -> Pascal</button>
     </form>
-    <div id="result"></div>
 </body>
 </html>
