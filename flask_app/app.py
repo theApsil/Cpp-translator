@@ -10,7 +10,7 @@ app.secret_key = "Kakoy-to secret key"
 @app.route('/', methods=['GET', 'POST'])
 def main_page():
     if request.method == 'GET':
-        input_code = request.args.get('input_code').replace("\r", "")
+        input_code = request.args.get('input_code')
         output_code = request.args.get('output_code')
         return render_template('index.html', input_code=input_code, output_code=output_code)
     elif request.method == 'POST':
@@ -20,7 +20,7 @@ def main_page():
             return redirect(url_for("main_page", input_code=input_code))
         else:
             with open("test.cpp", "w", encoding="UTF-8") as file:
-                file.write(input_code)
+                file.write(input_code.replace("\r", ""))
 
             output_code = get_code()
             if isinstance(output_code, tuple):
