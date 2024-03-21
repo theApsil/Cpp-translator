@@ -21,13 +21,13 @@ class LexicalAnalyzer:
             self.lineNumber = lineNumber
             self.word = word
 
-    def __init__(self, input_code):
-        self.input_code = input_code.rjust().ljust()
+    def __init__(self, fileName):
+        self.inputFile = open(fileName, 'r')
         self.lexemeArray = []
         self.errors = []
 
-    # def __del__(self):
-    #     self.inputFile.close()
+    def __del__(self):
+        self.inputFile.close()
 
     def __removeSpaces(self, line):
         # self.inputFile = self.inputFile.replace("\n", "")
@@ -102,7 +102,7 @@ class LexicalAnalyzer:
     def __removeComments(self, line):
         return re.sub('//.*', '', line)
 
-    def startParsing(self): # TODO: НАДО ПРАВИТЬ С**А
+    def startParsing(self):
         if not self.inputFile.read(1):
             return False
         else:
@@ -139,3 +139,6 @@ class LexicalAnalyzer:
 
     def returnLexemes(self, testCaseNumber):
         return self.lexemeArray[testCaseNumber].lexemeType.name
+
+    def getErrors(self):
+        return self.errors
