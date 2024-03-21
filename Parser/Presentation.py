@@ -316,6 +316,8 @@ class Earley:
                 i += 1
                 file.write("\n")
 
+    def getErrors(self):
+        return self.semanticError
 
 class TreeBuilder:
     def __init__(self, table, rules):

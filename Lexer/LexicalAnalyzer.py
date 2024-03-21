@@ -139,3 +139,6 @@ class LexicalAnalyzer:
 
     def returnLexemes(self, testCaseNumber):
         return self.lexemeArray[testCaseNumber].lexemeType.name
+
+    def getErrors(self):
+        return self.errors
